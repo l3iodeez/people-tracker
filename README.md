@@ -42,6 +42,10 @@ as delimiters.
   - Keeps track of all parameters of a person
   - Has a unique ID number
 
+#### Libraries used
+  - Jasmine
+  - jQuery
+
 [Github]: https://github.com/l3iodeez
 [LinkedIn]: https://www.linkedin.com/in/henry-dotson-5511718
 [Web]: http://www.hdotson.com
