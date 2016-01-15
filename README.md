@@ -16,12 +16,8 @@
   - Load any additional files, then click one of the output buttons.
   - Output will appear in the text area marked "output" .
 
-
-
 ### Running Tests
   Open `SpecRunner.html` in your browser or click [here][Test Link].
-
-
 
 ### Project Description
 
@@ -33,7 +29,7 @@ as delimiters.
 #### Object Classes
 
 - PeopleTracker
-  - Global Namespace Object
+  - Container namespace
 - Tracker
   - Parses data and creates Person objects.
   - Keeps track of data in the form of Persons.
