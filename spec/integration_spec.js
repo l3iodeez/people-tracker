@@ -16,17 +16,28 @@ describe("PeopleTracker integration", function () {
    });
 
   it("generates complete output that matches original specification.", function() {
-    jasmine.Ajax.stubRequest('/data/comma.txt').andReturn({
+    var comma, pipe, space;
+    if (location.href.indexOf("hdotson.com") !== -1) {
+      comma = location.href + "data/comma.txt";
+      pipe = location.href + "data/pipe.txt";
+      space = location.href + "data/space.txt";
+    } else {
+      comma = "/data/comma.txt";
+      pipe = "/data/pipe.txt";
+      space = "/data/space.txt";
+    }
+
+    jasmine.Ajax.stubRequest(comma).andReturn({
       "responseText": "Abercrombie, Neil, Male, Tan, 2/13/1943\n" +
       "Bishop, Timothy, Male, Yellow, 4/23/1967\n" +
       "Kelly, Sue, Female, Pink, 7/12/1959"
     });
-    jasmine.Ajax.stubRequest('/data/pipe.txt').andReturn({
+    jasmine.Ajax.stubRequest(pipe).andReturn({
       "responseText": "Smith | Steve | D | M | Red | 3-3-1985\n" +
       "Bonk | Radek | S | M | Green | 6-3-1975\n" +
       "Bouillon | Francis | G | M | Blue | 6-3-1975\n"
     });
-    jasmine.Ajax.stubRequest('/data/space.txt').andReturn({
+    jasmine.Ajax.stubRequest(space).andReturn({
       "responseText": "Kournikova Anna F F 6-3-1975 Red\n" +
       "Hingis Martina M F 4-2-1979 Green\n" +
       "Seles Monica H F 12-2-1973 Black"
