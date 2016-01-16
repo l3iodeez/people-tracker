@@ -121,29 +121,30 @@ describe("PeopleTracker.Tracker.prototype.parseInput", function() {
   });
 });
 describe("PeopleTracker.Tracker.prototype.output", function() {
+  var tracker, neil, steve, anna;
   beforeEach(function() {
-    var tracker = new PeopleTracker.Tracker(),
-      neil = "Abercrombie, Neil, Male, Tan, 2/13/1943",
-      steve = "Smith | Steve | D | M | Red | 3-3-1985",
-      anna = "Kournikova Anna F F 6-3-1975 Red";
-      tracker.addPerson(tracker.parseInput(neil, ", "));
-      tracker.addPerson(tracker.parseInput(steve, " | "));
-      tracker.addPerson(tracker.parseInput(anna, " "));
+     tracker = new PeopleTracker.Tracker();
+      neil = ["Abercrombie, Neil, Male, Tan, 2/13/1943"];
+      steve = ["Smith | Steve | D | M | Red | 3-3-1985"];
+      anna = ["Kournikova Anna F F 6-3-1975 Red"];
+      tracker.handleInput(neil);
+      tracker.handleInput(steve);
+      tracker.handleInput(anna);
   });
 
 
   it("outputs results properly sorted by gender, then last name ascending", function() {
-      expect(tracker.output(1)).toEqual(
+      expect(tracker.output({"lname":"asc", "sex": "asc"})).toEqual(
       "Kournikova Anna Female 6/3/1975 Red\nAbercrombie Neil Male 2/13/1943 Tan\nSmith Steve Male 3/3/1985 Red"
       );
   });
   it("outputs results properly sorted by birthdate, then last name ascending", function() {
-      expect(tracker.output(2)).toEqual(
+      expect(tracker.output({"lname":"asc","dob": "asc"})).toEqual(
       "Abercrombie Neil Male 2/13/1943 Tan\nKournikova Anna Female 6/3/1975 Red\nSmith Steve Male 3/3/1985 Red"
       );
   });
   it("outputs results properly sorted by last name descending", function() {
-      expect(tracker.output(3)).toEqual(
+      expect(tracker.output({"lname":"dsc"})).toEqual(
         "Smith Steve Male 3/3/1985 Red\nKournikova Anna Female 6/3/1975 Red\nAbercrombie Neil Male 2/13/1943 Tan"
       );
   });

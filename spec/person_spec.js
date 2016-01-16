@@ -1,3 +1,4 @@
+
 describe("PeopleTracker.Person", function() {
   var opts = {
     "lname": "Smith",
@@ -22,4 +23,19 @@ describe("PeopleTracker.Person", function() {
       expect(person.fcolor).toEqual("Blue");
   });
 
+});
+
+describe("PeopleTracker.Person.prototype.toString", function() {
+  var opts = {
+    "lname": "Smith",
+    "fname": "Bob",
+    "mid": "L",
+    "sex": "Male",
+    "fcolor": "Blue",
+    "dob": new Date("01/01/1981")
+  };
+  var person =  new PeopleTracker.Person(opts);
+  it("outputs a string in the correct format", function() {
+    expect(person.toString()).toEqual("Smith Bob Male 1/1/1981 Blue");
+  });
 });
