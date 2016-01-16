@@ -79,26 +79,26 @@ describe("PeopleTracker.Tracker.prototype.parseInput", function() {
     steve = "Smith | Steve | D | M | Red | 3-3-1985",
     anna = "Kournikova Anna F F 6-3-1975 Red";
 
-    it("raises an error if given an invalid delimiter", function () {
-      expect(function () {
-        tracker.parseInput(neil, "$");
-      }).toThrow("Invalid delimiter.");
-    });
+  it("raises an error if given an invalid delimiter", function () {
+    expect(function () {
+      tracker.parseInput(neil, "$");
+    }).toThrow("Invalid delimiter.");
+  });
 
-    it("returns an object", function() {
-      var person = tracker.parseInput(neil, ", ");
-        expect(typeof person).toEqual("object");
-    });
+  it("returns an object", function() {
+    var person = tracker.parseInput(neil, ", ");
+      expect(typeof person).toEqual("object");
+  });
 
-    it("parses comma delimited strings", function() {
-      var person = tracker.parseInput(neil, ", ");
-        expect(person.fname).toEqual("Neil");
-        expect(person.lname).toEqual("Abercrombie");
-        expect(person.mid).toEqual("");
-        expect(person.dob.toString).toEqual(new Date("2/13/1943").toString);
-        expect(person.sex).toEqual("Male");
-        expect(person.fcolor).toEqual("Tan");
-    });
+  it("parses comma delimited strings", function() {
+    var person = tracker.parseInput(neil, ", ");
+      expect(person.fname).toEqual("Neil");
+      expect(person.lname).toEqual("Abercrombie");
+      expect(person.mid).toEqual("");
+      expect(person.dob.toString).toEqual(new Date("2/13/1943").toString);
+      expect(person.sex).toEqual("Male");
+      expect(person.fcolor).toEqual("Tan");
+  });
 
   it("parses pipe delimited strings", function() {
     var person = tracker.parseInput(steve, " | ");
@@ -120,6 +120,7 @@ describe("PeopleTracker.Tracker.prototype.parseInput", function() {
     expect(person.fcolor).toEqual("Red");
   });
 });
+
 describe("PeopleTracker.Tracker.prototype.output", function() {
   var tracker, neil, steve, anna;
   beforeEach(function() {
@@ -135,12 +136,12 @@ describe("PeopleTracker.Tracker.prototype.output", function() {
 
   it("outputs results properly sorted by gender, then last name ascending", function() {
       expect(tracker.output({"lname":"asc", "sex": "asc"})).toEqual(
-      "Kournikova Anna Female 6/3/1975 Red\nAbercrombie Neil Male 2/13/1943 Tan\nSmith Steve Male 3/3/1985 Red"
+        "Kournikova Anna Female 6/3/1975 Red\nAbercrombie Neil Male 2/13/1943 Tan\nSmith Steve Male 3/3/1985 Red"
       );
   });
   it("outputs results properly sorted by birthdate, then last name ascending", function() {
       expect(tracker.output({"lname":"asc","dob": "asc"})).toEqual(
-      "Abercrombie Neil Male 2/13/1943 Tan\nKournikova Anna Female 6/3/1975 Red\nSmith Steve Male 3/3/1985 Red"
+        "Abercrombie Neil Male 2/13/1943 Tan\nKournikova Anna Female 6/3/1975 Red\nSmith Steve Male 3/3/1985 Red"
       );
   });
   it("outputs results properly sorted by last name descending", function() {
