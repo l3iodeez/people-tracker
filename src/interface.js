@@ -97,8 +97,15 @@ PeopleTracker.Interface.prototype.getfile = function (filename) {
 
   this.loadedFiles.push(filename);
   this.status = "";
+
+  var url;
+  if (location.href.indexOf("hdotson.com") !== -1) {
+    url = location.href + "data/" + filename;
+  } else {
+    url = '/data/' + filename;
+  }
   $.ajax({
-        url: '/data/' + filename,
+        url: url,
         type: 'GET',
         dataType: 'text',
         success: function (file) {
