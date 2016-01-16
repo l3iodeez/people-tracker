@@ -21,14 +21,15 @@
   - Initialize a new PeopleTracker.Tracker object. (The interface object is not
     needed for CLI operation.)
   - Pass an array of text strings to PeopleTracker.Tracker.prototype.handleInput.
-  - Strings will be parsed and added to the store. 
+  - Strings will be parsed and added to the store.
 
 ### Running Tests
   - Run `nodejs server.js` to start the local express server
   - Open `SpecRunner.html` in your browser or click [here][Test Link].
-  - Note: Using the node server is only necessary to run the UI tests. If  you
-  open index.html locally the application will work, but all UI tests will fail
-  (this is because of browser restrictions when working on the local filesystem).
+  - Note: Using the node server is only necessary to run the UI tests and load the
+  input files via AJAX. If you open index.html locally the application will work,
+  but you will need to load each file manually via the form and  all UI tests will
+  fail (this is because of browser restrictions when working on the local filesystem).
   To run UI tests either run the express server  locally or use the [live link][Test link]
 
 
