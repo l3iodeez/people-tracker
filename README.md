@@ -55,6 +55,6 @@ as delimiters.
 [Github]: https://github.com/l3iodeez
 [LinkedIn]: https://www.linkedin.com/in/henry-dotson-5511718
 [Web]: http://www.hdotson.com
-[Live Link]: http://www.hdotson.com/cyrus-test
-[Test Link]: http://www.hdotson.com/cyrus-test/SpecRunner.html
-[Repository link]: https://github.com/l3iodeez/cyrus-test
+[Live Link]: http://www.hdotson.com/people-tracker
+[Test Link]: http://www.hdotson.com/people-tracker/SpecRunner.html
+[Repository link]: https://github.com/l3iodeez/people-tracker
