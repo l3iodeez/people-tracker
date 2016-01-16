@@ -20,10 +20,17 @@ PeopleTracker.Interface = function (buttons, fileselect) {
 
 
 PeopleTracker.Interface.prototype.handleClick = function (evt) {
+
   evt.preventDefault();
   evt.stopPropagation();
   var current = PeopleTracker.current;
-  switch (evt.currentTarget.id) {
+  var buttonId;
+  if (evt.currentTarget) {
+    buttonId = evt.currentTarget.id;
+  } else {
+    buttonId = evt.target.id;
+  }
+  switch (buttonId) {
     case "upload":
       current.uploadFiles();
       break;
@@ -76,13 +83,13 @@ PeopleTracker.Interface.prototype.readFile = function (file) {
   if (typeof file === "string") {
     lines = file.split("\n");
   } else {
-    lines = PeopleTracker.current.reader.result.split("\n");
+    lines = this.reader.result.split("\n");
   }
   lines = lines.filter(function (line) {
     return line.length > 0;
   });
-  PeopleTracker.current.tracker.handleInput(lines);
-  PeopleTracker.current.updateStatus();
+  this.tracker.handleInput(lines);
+  this.updateStatus();
 };
 PeopleTracker.Interface.prototype.updateStatus = function () {
   $('#record-count')[0].innerHTML = this.tracker.people.length;
@@ -99,17 +106,19 @@ PeopleTracker.Interface.prototype.getfile = function (filename) {
   this.status = "";
 
   var url;
+  var current = PeopleTracker.current;
   if (location.href.indexOf("hdotson.com") !== -1) {
     url = location.href + "data/" + filename;
   } else {
     url = '/data/' + filename;
   }
+
   $.ajax({
         url: url,
         type: 'GET',
         dataType: 'text',
         success: function (file) {
-          PeopleTracker.current.readFile(file);
+          current.readFile(file);
         }
   });
 };
@@ -123,13 +132,28 @@ PeopleTracker.Interface.prototype.spaceInput = function () {
   this.getfile("space.txt");
 };
 PeopleTracker.Interface.prototype.output1 = function () {
-  $("#output")[0].innerHTML = this.tracker.output({"lname":"asc", "sex": "asc"});
+  var result = this.tracker.output({"lname":"asc", "sex": "asc"});
+  var display = $("#output")[0];
+  if (display) {
+    $("#output")[0].innerHTML = result;
+  }
+  return result;
 };
 PeopleTracker.Interface.prototype.output2 = function () {
-  $("#output")[0].innerHTML = this.tracker.output({"lname":"asc", "dob": "asc"});
+  var result = this.tracker.output({"lname":"asc", "dob": "asc"});
+  var display = $("#output")[0];
+  if (display) {
+    display.innerHTML = result;
+  }
+  return result;
 };
 PeopleTracker.Interface.prototype.output3 = function () {
-  $("#output")[0].innerHTML = this.tracker.output({"lname":"dsc"});
+  var result = this.tracker.output({"lname":"dsc"});
+  var display = $("#output")[0];
+  if (display) {
+    $("#output")[0].innerHTML = result;
+  }
+  return result;
 };
 PeopleTracker.Interface.prototype.customOutput = function (order) {
 

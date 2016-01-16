@@ -16,19 +16,19 @@ describe("PeopleTracker.Interface", function() {
     PeopleTracker.current = undefined;
   });
 
-  it("is a function", function() {
+  it("is a function.", function() {
     expect(typeof PeopleTracker.Interface).toEqual("function");
   });
 
-  it("generates an interface object and sets it to the 'current' method on the global namespace", function() {
+  it("generates an interface object and sets it to the 'current' method on the global namespace.", function() {
     expect(PeopleTracker.current).toEqual(interface1);
   });
 
-  it("uses lazy loading", function() {
+  it("uses lazy loading.", function() {
     expect(interface1 === interface2).toEqual(true);
   });
 
-  it("attaches event listeners to UI buttons", function() {
+  it("attaches event listeners to UI buttons.", function() {
     buttons.each(function (idx, button) {
       expect(typeof button.onclick).toEqual("function");
     });

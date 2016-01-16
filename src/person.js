@@ -13,7 +13,8 @@ PeopleTracker.Person.prototype.toString = function () {
   string += this.lname + " ";
   string += this.fname + " ";
   string += this.sex + " ";
-  string += this.dob.toLocaleDateString() + " ";
+  string += (this.dob.getMonth()+1)+"/"+ this.dob.getDate() +"/"+ this.dob.getFullYear() + " ";
+
   string += this.fcolor;
   return string;
 };
