@@ -17,7 +17,13 @@
   - Output will appear in the text area marked "output" .
 
 ### Running Tests
-  Open `SpecRunner.html` in your browser or click [here][Test Link].
+  - Run `nodejs server.js` to start the local express server
+  - Open `SpecRunner.html` in your browser or click [here][Test Link].
+  - Note: Using the node server is only necessary to run the UI tests. If  you
+  open index.html locally the application will work, but all UI tests will fail
+  (this is because of browser restrictions when working on the local filesystem).
+  To run UI tests either run the express server  locally or use the [live link][Test link]
+
 
 ### Project Description
 
