@@ -4,7 +4,7 @@
  - [Test link]
  - [Repository link]
 
-##### Submitted on 01/XX/16 by:
+##### Submitted on 01/18/16 by:
   - Henry Dotson
   - Email: henry.d.dotson@gmail.com
   - Cell: 646-301-5604
