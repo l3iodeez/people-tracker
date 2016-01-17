@@ -6,6 +6,9 @@ PeopleTracker.Tracker = function () {
 };
 
 PeopleTracker.Tracker.prototype.handleInput = function (lineArray) {
+  if (lineArray.length === 0) {
+    return;
+  }
   var delimiter;
   if (lineArray[0].indexOf('|') !== -1 ) {
     delimiter = " | ";
@@ -30,7 +33,7 @@ PeopleTracker.Tracker.prototype.parseInput = function (string, delimiter) {
       "lname": array[0],
       "fname": array[1],
       "mid": array[2],
-      "sex": array[3][0] === "M" ? "Male" : "Female",
+      "sex": array[3] === "M" ? "Male" : "Female",
       "fcolor": array[4],
       "dob": array[5]
     };
@@ -48,7 +51,7 @@ PeopleTracker.Tracker.prototype.parseInput = function (string, delimiter) {
       "lname": array[0],
       "fname": array[1],
       "mid": array[2],
-      "sex": array[3][0] === "M" ? "Male" : "Female",
+      "sex": array[3] === "M" ? "Male" : "Female",
       "fcolor": array[5],
       "dob": array[4]
     };

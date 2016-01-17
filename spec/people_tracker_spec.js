@@ -52,7 +52,7 @@ describe("PeopleTracker.Tracker.prototype.handleInput", function() {
   });
 
   it("detemines the correct delimiter and calls parseInput", function () {
-    spyOn(tracker, "parseInput").and.callThrough();
+    spyOn(tracker, "parseInput");
     tracker.handleInput(pipe);
     expect(tracker.parseInput).toHaveBeenCalledWith("Smith | Steve | D | M | Red | 3-3-1985", " | ");
   });
